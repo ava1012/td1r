@@ -14,9 +14,39 @@
 """
 
 def lire():
-    # récupération des arguments et sélection du flux
-    # comptage
-    # affichage
+    import sys
+
+from comptage import lire_texte
+def lettre_de_base(caractere):
+    match caractere:
+        case "à" | "â" | "ä" | "À" | "Â" | "Ä":
+            return "a"
+        case "é" | "è" | "ê" | "ë" | "É" | "È" | "Ê" | "Ë":
+            return "e"
+        case "î" | "ï" | "Î" | "Ï":
+            return "i"
+        case "ô" | "ö" | "Ô" | "Ö":
+            return "o"
+        case "ù" | "û" | "ü" | "Ù" | "Û" | "Ü":
+            return "u"
+        case "ÿ" | "Ÿ":
+            return "y"
+        case "ç" | "Ç":
+            return "c"
+        case _ if "a" <= caractere
+        case _ if "A" <= caractere <= "Z":                  
+        case _:
+            return None 
+
+def analyser(texte):
+    compteurs = [0] * TAILLE
+    dans_un_mot = False
+
+    for caractere in texte:
+        compteurs[CARACTERES] += 1
+        match caractere:
+            case "\n" | " " | "\t":
+                if caractere == "\n":
     pass
 
 

@@ -3,10 +3,15 @@
 - Ce programme demandera à l'utilisateur de saisir une chaine uniquement s'il est invoqué en mode interactif.  
 - Ce programme ne devra afficher sur la sortie standard *que* le nombre de caractères saisi. 
 - Une fois le programme ci-dessous mis au point, poussez votre travail sur votre dépôt git et appelez l'enseignant avant de passer à l'exercice suivant."""
-
+import sys
 
 def comptage():
     return 0 
-    
+    if sys.stdin.isatty():
+        print("saisissez votre texte (ctrl + D sur une ligne vide pour terminer) : ", file = sys.stderr) 
+    texte = sys.stdin.read()
+    print(len(texte))
+    return 0
 if __name__ == "__main__":
     print(comptage())
+
